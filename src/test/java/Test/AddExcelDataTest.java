@@ -2,8 +2,12 @@ package Test;
 
 import Base.BaseTest;
 import Pages.WebTablesPage;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -21,8 +25,9 @@ public class AddExcelDataTest extends BaseTest {
 
 
     @Test(priority = 10)
-    public void inputDataPerson1() {
+    public void inputDataPerson1() throws InterruptedException {
         webTablesPage.clickAddButton();
+
 
         String firstName = excelReader.getStringData("Sheet1", 1, 0);
         String lastName = excelReader.getStringData("Sheet1", 1, 1);
@@ -37,10 +42,23 @@ public class AddExcelDataTest extends BaseTest {
         webTablesPage.inputSalary(salary);
         webTablesPage.inputDepartment(department);
         webTablesPage.clickOnSubmitButton();
-    }
+
+        Assert.assertTrue(webTablesPage.checkIfExist(firstName).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(lastName).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(email).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(age).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(salary).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(department).isDisplayed());
+
+
+
+       }
+
+
     @Test(priority = 20)
     public void inputDataPerson2() {
         webTablesPage.clickAddButton();
+
 
         String firstName = excelReader.getStringData("Sheet1", 2, 0);
         String lastName = excelReader.getStringData("Sheet1", 2, 1);
@@ -55,11 +73,24 @@ public class AddExcelDataTest extends BaseTest {
         webTablesPage.inputSalary(salary);
         webTablesPage.inputDepartment(department);
         webTablesPage.clickOnSubmitButton();
+
+
+        Assert.assertTrue(webTablesPage.checkIfExist(firstName).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(lastName).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(email).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(age).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(salary).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(department).isDisplayed());
+
+
     }
+
+
 
     @Test(priority = 30)
     public void inputDataPerson3() {
         webTablesPage.clickAddButton();
+
 
         String firstName = excelReader.getStringData("Sheet1", 3, 0);
         String lastName = excelReader.getStringData("Sheet1", 3, 1);
@@ -74,11 +105,22 @@ public class AddExcelDataTest extends BaseTest {
         webTablesPage.inputSalary(salary);
         webTablesPage.inputDepartment(department);
         webTablesPage.clickOnSubmitButton();
+
+        Assert.assertTrue(webTablesPage.checkIfExist(firstName).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(lastName).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(email).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(age).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(salary).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(department).isDisplayed());
+
+
+
     }
 
     @Test(priority = 40)
     public void inputDataPerson4() {
         webTablesPage.clickAddButton();
+
 
         String firstName = excelReader.getStringData("Sheet1", 4, 0);
         String lastName = excelReader.getStringData("Sheet1", 4, 1);
@@ -93,6 +135,17 @@ public class AddExcelDataTest extends BaseTest {
         webTablesPage.inputSalary(salary);
         webTablesPage.inputDepartment(department);
         webTablesPage.clickOnSubmitButton();
+
+
+        Assert.assertTrue(webTablesPage.checkIfExist(firstName).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(lastName).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(email).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(age).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(salary).isDisplayed());
+        Assert.assertTrue(webTablesPage.checkIfExist(department).isDisplayed());
+
+
+
     }
 }
 

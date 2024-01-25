@@ -14,7 +14,7 @@ public class WebTablesPage extends BaseTest {
         PageFactory.initElements(driver, this);
     }
 
-   @FindBy(id = "addNewRecordButton")
+    @FindBy(id = "addNewRecordButton")
     public WebElement addButton;
 
     @FindBy(id = "firstName")
@@ -31,6 +31,10 @@ public class WebTablesPage extends BaseTest {
     public WebElement departmentField;
     @FindBy(id = "submit")
     public WebElement submitButton;
+    @FindBy(className = "rt-td")
+    public List<WebElement> field;
+
+
 
 
     public void clickAddButton() {
@@ -38,8 +42,8 @@ public class WebTablesPage extends BaseTest {
     }
 
     public void inputFirstName(String firstName) {
-       firstNameField.clear();
-       firstNameField.sendKeys(firstName);
+        firstNameField.clear();
+        firstNameField.sendKeys(firstName);
     }
 
     public void inputLastName(String lastName) {
@@ -71,5 +75,15 @@ public class WebTablesPage extends BaseTest {
         submitButton.click();
     }
 
+
+    public WebElement checkIfExist(String text) {
+        WebElement input = null;
+        for(int i=0; i< field.size(); i++) {
+            if(field.get(i).getText().equals(text)) {
+                input = field.get(i);
+                break;
+            }
+        }return input;
     }
 
+}
